@@ -18,8 +18,21 @@ footer {
   text-align: right;
   color: midnightblue;
 }
-
-@media (max-width:1200px) {
+.creative{
+  color: midnightblue;
+}
+.title-image{
+  float: left;
+  height: 20px;
+}
+.card {
+   display: inline-block;
+   width: 200px;
+}
+@media (max-width:600px) {
+  .card{
+    display: inline-block;
+  }
   .left{
   float: left;
   }
@@ -29,11 +42,7 @@ footer {
 
 }
 
-@media (min-width: 1201px) {
-  .card {
-    display: inline-block;
-    width: 40%;
-  }
+@media (min-width: 601px) {
   .left {
     float: left;
   }
