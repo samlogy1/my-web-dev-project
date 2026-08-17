@@ -1,15 +1,18 @@
 
-
+// detecting button press 
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
-    document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
+    document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+        makesound(this.innerHTML)
+        buttonAnimation(this.innerHTML)
+    });
 }
 
 
 
 
 
-function handleClick() {
-    switch (this.innerHTML) {
+function makesound(key) {
+    switch (key) {
         case "w":
             var crash = new Audio("sounds/crash.mp3");
             crash.play();
@@ -41,4 +44,19 @@ function handleClick() {
 
         default: console.log(this.innerHTML)
     }
+}
+
+
+// detecting key press
+document.addEventListener("keydown", function(event) {
+    makesound(event.key)
+    buttonAnimation(event.key)
+});
+
+function buttonAnimation(currentkey) {
+    var activeButton = document.querySelector("."+currentkey);
+    activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100)
 }
